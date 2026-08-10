@@ -31,23 +31,22 @@
  }
 
  ::view-transition-group(main-content) {
-   animation-duration: 0.25s;
-   animation-timing-function: ease-in-out;
-
+     animation-duration: 0.25s;
+     animation-timing-function: ease-in-out;
  }
 
  ::view-transition-old(main-content) {
-    animation-name: slide-out; 
-    opacity: 1;
+     animation-name: slide-out;
+     opacity: 1;
  }
 
  ::view-transition-new(main-content) {
-    animation-name: slide-in; 
-    opacity: 1;
+     animation-name: slide-in;
+     opacity: 1;
  }
 
  main {
-    view-transition-name: main-content;
+     view-transition-name: main-content;
  }
 
  body {
