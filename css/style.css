@@ -1,0 +1,222 @@
+ /* --- Font Declaration --- */
+ @font-face {
+     font-family: 'SN Pro';
+     src: url('SNPro-Medium.woff2') format('woff2');
+     font-weight: 500;
+     font-style: normal;
+     font-display: swap;
+ }
+
+ /* --- Root Variables & Design Tokens --- */
+ :root {
+     --bg-color: #0d0f12;
+     --card-bg: #161a22;
+     --accent-color: #3b82f6;
+     --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+     --text-main: #f3f4f6;
+     --text-muted: #9ca3af;
+     --border-color: #262c36;
+     --font-family: 'SN Pro', system-ui, -apple-system, sans-serif;
+ }
+
+ /* --- Reset & Global Styles --- */
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ @view-transition {
+     navigation: auto;
+ }
+
+ ::view-transition-group(main-content) {
+   animation-duration: 0.25s;
+   animation-timing-function: ease-in-out;
+
+ }
+
+ ::view-transition-old(main-content) {
+    animation-name: slide-out; 
+    opacity: 1;
+ }
+
+ ::view-transition-new(main-content) {
+    animation-name: slide-in; 
+    opacity: 1;
+ }
+
+ main {
+    view-transition-name: main-content;
+ }
+
+ body {
+     background-color: var(--bg-color);
+     color: var(--text-main);
+     font-family: var(--font-family);
+     line-height: 1.6;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+ }
+
+ a {
+     color: inherit;
+     text-decoration: none;
+ }
+
+ /* --- Header / Navigation --- */
+ header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1.5rem 2rem;
+     max-width: 1200px;
+     margin: 0 auto;
+     width: 100%;
+ }
+
+ .brand-container {
+     display: flex;
+     align-items: center;
+     gap: 1.25rem;
+ }
+
+ /* Fixed 100x100px Logo Container */
+ .logo-img {
+     width: 200px;
+     object-fit: contain;
+     border-radius: 8px;
+ }
+
+ .logo-text {
+     font-size: 1.35rem;
+     font-weight: 500;
+     letter-spacing: 2px;
+     background: var(--accent-gradient);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .nav-links a {
+     margin-left: 1.5rem;
+     color: var(--text-muted);
+     font-size: 0.95rem;
+     transition: color 0.2s ease;
+ }
+
+ .nav-links a:hover {
+     color: var(--text-main);
+ }
+
+ /* --- main-content Section --- */
+ .main-content {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     padding: 4rem 1.5rem;
+     max-width: 850px;
+     margin: 0 auto;
+ }
+
+ .tagline-badge {
+     display: inline-block;
+     padding: 0.4rem 1rem;
+     border-radius: 20px;
+     background: rgba(59, 130, 246, 0.1);
+     border: 1px solid rgba(59, 130, 246, 0.2);
+     color: var(--accent-color);
+     font-size: 0.85rem;
+     margin-bottom: 1.5rem;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+ }
+
+ .main-content h1 {
+     font-size: clamp(2.2rem, 5vw, 3.5rem);
+     line-height: 1.2;
+     margin-bottom: 1.25rem;
+ }
+
+ .main-content p {
+     font-size: 1.15rem;
+     color: var(--text-muted);
+     max-width: 650px;
+     margin-bottom: 2.5rem;
+ }
+
+ .cta-buttons {
+     display: flex;
+     gap: 1rem;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+
+ .btn {
+     padding: 0.85rem 1.75rem;
+     border-radius: 8px;
+     font-size: 0.95rem;
+     transition: transform 0.2s ease, opacity 0.2s ease;
+     cursor: pointer;
+ }
+
+ .btn:hover {
+     transform: translateY(-2px);
+ }
+
+ .btn-primary {
+     background: var(--accent-gradient);
+     color: #fff;
+     border: none;
+ }
+
+ .btn-secondary {
+     background: transparent;
+     color: var(--text-main);
+     border: 1px solid var(--border-color);
+ }
+
+ /* --- Value Pillars --- */
+ .features {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 1.5rem;
+     max-width: 1200px;
+     width: 100%;
+     margin: 2rem auto 4rem auto;
+     padding: 0 1.5rem;
+ }
+
+ .feature-card {
+     background: var(--card-bg);
+     border: 1px solid var(--border-color);
+     padding: 2rem;
+     border-radius: 12px;
+     transition: border-color 0.2s ease;
+ }
+
+ .feature-card:hover {
+     border-color: #3b82f6;
+ }
+
+ .feature-card h3 {
+     font-size: 1.2rem;
+     margin-bottom: 0.5rem;
+ }
+
+ .feature-card p {
+     color: var(--text-muted);
+     font-size: 0.95rem;
+ }
+
+ /* --- Footer --- */
+ footer {
+     border-top: 1px solid var(--border-color);
+     text-align: center;
+     padding: 2rem 1.5rem;
+     color: var(--text-muted);
+     font-size: 0.85rem;
+ }
